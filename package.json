@@ -15,7 +15,7 @@
     "postuninstall": "electron-builder install-app-deps",
     "lint_fix": "eslint 'src/**/*.{ts,js,tsx,jsx}' --fix -o eslint_log.log"
   },
-  "main": "background.js",
+  "main": "./src/background.js",
   "dependencies": {
     "babel-eslint": "^10.1.0",
     "core-js": "^3.6.5",
@@ -62,6 +62,7 @@
     "typescript": "~3.9.3",
     "wdio-chromedriver-service": "^6.0.3"
   },
+  "type": "module",
   "_id": "code-generation-front-end@0.1.0",
   "readme": "ERROR: No README data found!"
 }
