@@ -1,9 +1,8 @@
-var path = require('path')
+const path = require('path')
 
-function resolve(dir) {
+function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
-
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
@@ -23,7 +22,7 @@ module.exports = {
         productName: 'code-generation-front-end@0.1.0',
         files: ['**/*', 'static/*'],
         directories: {
-          output: "dist_electron/dist"
+          output: 'dist_electron/dist'
         },
         asar: true,
         win: {
@@ -48,8 +47,8 @@ module.exports = {
     config
       .plugin('html')
       .tap(args => {
-        args[0].title = "My Vue App";
-        return args;
+        args[0].title = 'My Vue App'
+        return args
       })
     config.module
       .rule('html')
@@ -62,12 +61,15 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        "@": resolve("src"),
-        'vue$': 'vue/dist/vue.js'
+        '@': resolve('src'),
+        vue$: 'vue/dist/vue.js'
       }
     }
   },
   css: {
+    extract: true,
+    sourceMap: false,
+    requireModuleExtension: true,
     loaderOptions: {
       less: {
         test: /\.less$/,

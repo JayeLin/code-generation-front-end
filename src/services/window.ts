@@ -9,7 +9,7 @@
  * - 英语 `EN`
  * - 葡文 `pt`
  */
-export function getLocalLanguage(type?: string) {
+export function getLocalLanguage (type?: string) {
   type = navigator.language || type || 'ZH_TW'
   if (type.indexOf('zh-') > -1) {
     if (type.indexOf('CN') > -1 || type.indexOf('hans') > -1) {
@@ -27,7 +27,7 @@ export function getLocalLanguage(type?: string) {
 }
 
 /** 字符占位符替换， 占位符：{0-n} */
-export function textPHRP(value: string, replaces: string[]) {
+export function textPHRP (value: string, replaces: string[]) {
   let text = value
   for (const i in replaces) {
     if (value.hasOwnProperty(i)) {
@@ -40,7 +40,7 @@ export function textPHRP(value: string, replaces: string[]) {
 // ---------------------------------  数据检测  ---------------------------------
 
 /** 是否是对象 - Object{} */
-export function ISObject(value: any) {
+export function ISObject (value: any) {
   if (value && typeof value === 'object' && !Array.isArray(value)) {
     return true
   }
@@ -48,17 +48,17 @@ export function ISObject(value: any) {
 }
 
 /** 是否是数组 - Array[] */
-export function ISArray(value: any) {
+export function ISArray (value: any) {
   return Array.isArray(value)
 }
 
 /** 是否是函数 - function */
-export function ISFunction(value: any) {
+export function ISFunction (value: any) {
   return typeof value === 'function'
 }
 
 /** 是否是空对象 - Object{}, 配合ISObject使用 */
-export function ISEmptyObject(value: any) {
+export function ISEmptyObject (value: any) {
   for (const i in value) {
     if (value.hasOwnProperty(i)) {
       return false
@@ -69,14 +69,14 @@ export function ISEmptyObject(value: any) {
 
 // ---------------------------------  扩充方法  ---------------------------------
 /** 对象深复制 */
-export function deepCopy<T>(data: T): T {
+export function deepCopy<T> (data: T): T {
   return JSON.parse(JSON.stringify(data))
 }
 
 // ---------------------------------     IE    ---------------------------------
 
 /** 扩展 Map - 兼容IE 11 */
-export function CreateMap(mapArray: any): any {
+export function CreateMap (mapArray: any): any {
   const map = new Map()
   mapArray.forEach((item: any) => {
     map.set(item[0], item[1])
@@ -85,7 +85,7 @@ export function CreateMap(mapArray: any): any {
 }
 
 /** 整理 IE 内存 */
-export function IECleanMemory() {
+export function IECleanMemory () {
   let win: any = window
   if (win.CollectGarbage) {
     setTimeout(win.CollectGarbage, 100)

@@ -26,13 +26,13 @@ export interface PublicKeyEncrypt {
 }
 
 const publicKeyEncryptService: PublicKeyEncrypt = {
-  encrypt(ctx: any) {
-    let encrypt = new JSEncrypt()
+  encrypt (ctx: any) {
+    const encrypt = new JSEncrypt()
     encrypt.setPublicKey(publicKey)
     return encrypt.encrypt(ctx)
   },
-  decrypt(sign: string) {
-    let decrypt = new JSEncrypt()
+  decrypt (sign: string) {
+    const decrypt = new JSEncrypt()
     decrypt.setPrivateKey(privateKey)
     return decrypt.decrypt(sign)
   },
@@ -40,22 +40,22 @@ const publicKeyEncryptService: PublicKeyEncrypt = {
    * @description MD5加密方式
    * @param passwords 需要加密的密码
    */
-  md5Encrypt(passwords: string | string[]) {
-    let encrypt: any = md5 // 获得真正的md5可操作加密
-    let saltEncrypt = (password: string): string => { // 定义一个通用的加密函数
-      let pre: any = ""
-      let middle: any = ""
-      let suffix: any = ""
-      let over: any = "" // 首部，中部，尾部，其余部分（出去结尾部分，皆需要加内容）
+  md5Encrypt (passwords: string | string[]) {
+    const encrypt: any = md5 // 获得真正的md5可操作加密
+    const saltEncrypt = (password: string): string => { // 定义一个通用的加密函数
+      let pre: any = ''
+      let middle: any = ''
+      let suffix: any = ''
+      let over: any = '' // 首部，中部，尾部，其余部分（出去结尾部分，皆需要加内容）
       pre = password.substring(0, 2), middle = password.substring(2, 4), suffix = password.substring(4, 6), over = password.substring(6)
-      let saltPassword = `${pre}x1${middle}y2${suffix}z3${over}`; // 加盐完毕的密码
+      const saltPassword = `${pre}x1${middle}y2${suffix}z3${over}` // 加盐完毕的密码
       password = encrypt(saltPassword) // 进行md5加密
       return password
     }
     if (typeof passwords === 'string') {
       passwords = saltEncrypt(passwords)
     } else {
-      for (let index in passwords) {
+      for (const index in passwords) {
         if (passwords[index]) {
           passwords[index] = saltEncrypt(passwords[index])
         }
