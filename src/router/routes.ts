@@ -5,8 +5,4 @@ export default [
     name: 'home',
     component: HomeComponent,
     children: []
-    // }, {
-    //   path: '/login',
-    //   name: 'login',
-    //   component: LoginComponent,
   }]

@@ -3,6 +3,7 @@ import { Component } from 'vue-property-decorator'
 import HelloWorldComponent from '../../components/helloWord' // @ is an alias to /src
 import './main.scss'
 @Component({
+  name: "home",
   components: {
     HelloWorld: HelloWorldComponent
   },
