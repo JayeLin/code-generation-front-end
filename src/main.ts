@@ -13,6 +13,9 @@ Vue.use(ElementUI)
 // 全局配置项
 import './config/'
 
+// 全局服务
+import './services/'
+
 Vue.config.productionTip = false
 
 export const vm: Vue = new Vue({

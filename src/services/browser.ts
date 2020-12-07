@@ -1,4 +1,4 @@
-import { vm } from '@/main';
+import { vm } from '../main';
 import * as store from '../store/keepalive'
 let state = store.keepalive.state
 export interface Browser {

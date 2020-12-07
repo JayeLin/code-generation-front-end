@@ -1,7 +1,7 @@
 const path = require('path')
 
 function resolve(dir) {
-  return path.join(__dirname, '..', dir)
+  return path.join(__dirname, dir)
 }
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
@@ -67,6 +67,11 @@ module.exports = {
   },
   // 加载 .html 文件
   chainWebpack: config => {
+    config.resolve.alias
+      .set('@', resolve('./src'))
+      .set('assets', resolve('./src/assets'))
+      .set('components', resolve('./src/components'))
+      .set('views', resolve('./src/views'))
     config
       .plugin('html')
       .tap(args => {
@@ -95,7 +100,7 @@ module.exports = {
   configureWebpack: {
     resolve: {
       alias: {
-        '@': resolve('/src'),
+        '@': resolve('/src/'),
         vue$: 'vue/dist/vue.js'
       }
     }
