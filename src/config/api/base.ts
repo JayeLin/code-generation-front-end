@@ -1,4 +1,5 @@
-import MS from "../../config/msConfig";
+// import MS from "../../config/msConfig";
+import MS from "@/config/msConfig";
 const BASE = {
   USER: {
     LOGIN: MS.BASE + "/csmslogin",

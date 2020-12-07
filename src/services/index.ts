@@ -17,6 +17,12 @@ import multiLanguage, { MultiLanguage } from './multiLanguage'
 // 登陆
 import loginService, { Login } from "./login";
 
+// 页面缓存
+import keepalive, { KeepAlive } from "./keepalive";
+
+// 系统语言配置
+import language, { Language } from './language';
+
 declare module 'vue/types/vue' {
   interface Vue {
     /** 浏览器监听方法 */
@@ -34,6 +40,12 @@ declare module 'vue/types/vue' {
     $login: Login
     /** HTTP请求 */
     $http: HttpService;
+
+    /** 页面缓存方法, 需要出现在TAB栏 才能使用！！！！！ */
+    $keepalive: KeepAlive;
+
+    /** 系统语言配置 */
+    $language: Language
   }
 }
 
@@ -52,6 +64,10 @@ Vue.prototype.$multiLanguage = multiLanguage
 Vue.prototype.$publicKeyEncryptService = publicKeyEncryptService
 
 Vue.prototype.$login = loginService;
+
+Vue.prototype.$language = language;
+
+Vue.prototype.$keepalive = keepalive;
 
 const nodeType = ['button', 'textarea', 'input']
 function isElement(node: string | undefined) {

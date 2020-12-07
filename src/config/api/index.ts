@@ -1,6 +1,7 @@
 import BASE from "./base"
-
+import CSO from "./cso"
 const CSMS = {
-  BASE
+  BASE,
+  CSO,
 }
 export default CSMS

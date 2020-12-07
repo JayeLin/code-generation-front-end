@@ -1,0 +1,39 @@
+<t-ui-layout-header class="frame_header">
+  <template slot="left">
+    <div class="header_left">
+      <h1 class="logo">
+        <img src="~@/assets/images/logo.png"
+             alt="" />
+      </h1>
+      <template class="userShop"
+                v-if="userInfo.userProperty === 'csr' && userInfo.isLogin">
+        <t-fn-usershop class="pdl20">
+        </t-fn-usershop>
+      </template>
+    </div>
+
+  </template>
+
+  <template slot="right">
+    <ul class="header_right">
+      <li class="header_userInfo flex flex_middle fontStyle pdr10"
+          v-if="userInfo.isLogin">
+        <i class="tui-icon-user minor mgr5"></i>
+        <span class="info">{{userInfo.employeeNo}}</span>
+      </li>
+      <li>
+        <!-- <t-fn-fullscreen></t-fn-fullscreen> -->
+      </li>
+      <li>
+        <!-- <t-fn-language></t-fn-language> -->
+      </li>
+      <li v-if="userInfo.isLogin">
+        <el-button plain
+                   class="fontStyle error"
+                   @click="$login.off">
+          <i class="tui-icon-off"></i>
+        </el-button>
+      </li>
+    </ul>
+  </template>
+</t-ui-layout-header>

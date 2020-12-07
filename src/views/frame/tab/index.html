@@ -1,0 +1,47 @@
+<t-ui-layout row
+             class="frame_tab">
+  <template slot="left">
+    <ul class="tab_list">
+      <li :class="[list[0].path == current.path?'active':'','tab_list__item']"
+          @click.stop="$router.push(list[0].path)">
+        <i class="tui-icon-home"></i>
+        <h3>{{ list[0].title }}</h3>
+      </li>
+    </ul>
+  </template>
+  <t-ui-layout-body class="frame_tab__body"
+                    fill>
+    <swiper class="tab_list"
+            :options="swiperConfig"
+            ref="swiper">
+      <template v-for="(item, index) in list">
+        <swiper-slide :title="item.title"
+                      v-if="item.name != 'home'">
+          <div :class="[item.path == current.path?'active':'','tab_list__item']"
+               @click.stop="router(item, index)">
+            <h3>{{item.title}}</h3>
+            <button class="tui-icon-close"
+                    @click.stop="remove(item)"></button>
+          </div>
+        </swiper-slide>
+      </template>
+    </swiper>
+    <div class="swiper-pagination">
+      <button class="tui-icon-arrow-left swiper-button"></button>
+      <button class="tui-icon-arrow-right swiper-button"></button>
+    </div>
+  </t-ui-layout-body>
+  <template slot="right">
+    <div class="frame_tab_tool">
+      <el-button plain
+                 :disabled="list.length <= 1"
+                 @click="removeAll()">
+        <i class="tui-icon-close"></i>
+      </el-button>
+      <template v-if="userInfo.userProperty === 'csr'">
+        <t-fn-usershop class="pdr10">
+        </t-fn-usershop>
+      </template>
+    </div>
+  </template>
+</t-ui-layout>

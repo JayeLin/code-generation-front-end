@@ -1,0 +1,60 @@
+@mixin message($n, $c) {
+  &--#{$n} {
+    color: $c;
+    box-shadow: 0 0 10px 0 rgba($c, .2);
+  }
+}
+
+.el-message {
+  padding: $SPACING;
+  align-items: flex-start;
+  top: $SPACING;
+
+  @include message(warning, $WARN);
+  @include message(success, $SUCCEED);
+  @include message(info, $INFO);
+  @include message(error, $ERROR);
+
+  &__icon {
+    font-size: .16rem;
+    margin-right: 0;
+    color: currentColor !important;
+  }
+
+
+  &__content {
+    flex: 1;
+    font-size: inherit;
+    line-height: .16rem;
+    padding: 0 $SPACING !important;
+    color: currentColor !important;
+  }
+
+  &__closeBtn {
+    position: static;
+    transform: translate(0, 1px);
+  }
+
+  .el-icon-close {
+    color: currentColor;
+  }
+}
+
+.el-message-box {
+  width: auto;
+  min-width: 3.2rem;
+  max-width: 6rem;
+
+  &__btns {
+    flex-flow: row-reverse;
+
+    >button {
+      margin-left: 0 !important;
+      margin-right: .1rem !important;
+
+      &:first-child {
+        margin-right: 0 !important;
+      }
+    }
+  }
+}

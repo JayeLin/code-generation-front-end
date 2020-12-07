@@ -1,0 +1,91 @@
+<t-ui-layout fill
+             class="frame_menu"
+             :class="{'show':isFold}">
+  <t-ui-layout-header class="menu_fold">
+    <button @click="changeFold">
+      <i :class="'tui-icon-fold-' + (!isFold? 'on':'off')"></i>
+    </button>
+  </t-ui-layout-header>
+  <t-ui-layout-body scroll
+                    class="frame_menu__body">
+    <ul class="frame_menu__tree">
+      <template v-for="item in menuList">
+        <li class="menu_tree__group">
+          <template v-if="isFold">
+            <div class="menu_tree__title"
+                 :class="{'active': current === item.menuCode}"
+                 @click="show(item.menuCode)">
+              <i :class="'tui-icon-' + item.menuCode"></i>
+              <h5>{{item.menuName}}</h5>
+            </div>
+            <el-collapse-transition>
+              <template v-if="item.menuCode !== 'business'">
+                <ul class="menu_tree__children"
+                    v-show="current === item.menuCode">
+                  <template v-for="children in item.children">
+                    <li @click="toRouter(children)">{{children.menuName}}</li>
+                  </template>
+                </ul>
+              </template>
+              <template v-else>
+                <div class="menu_tree__children"
+                     v-show="current === item.menuCode">
+                  <dl v-for="child in item.children">
+                    <dt>{{child.menuName}}</dt>
+                    <dd v-for="action in child.children">
+                      <router-link :to="{
+                        name: child.url, 
+                        params: {
+                          code: action.menuCode,
+                          serviceCategoryCode: action.url,
+                          date: new Date().getTime()}}">{{action.menuName}}</router-link>
+                    </dd>
+                  </dl>
+                </div>
+              </template>
+            </el-collapse-transition>
+          </template>
+          <template v-else>
+            <el-popover :value="current === item.menuCode"
+                        class="single"
+                        @hide="handleFold"
+                        placement="right-start">
+              <div slot="reference"
+                   @click="show(item.menuCode)"
+                   class="menu_tree__title"
+                   :title="item.title"
+                   :class="{'active':current === item.menuCode}">
+                <i :class="'tui-icon-' + item.menuCode"></i>
+              </div>
+
+              <template v-if="item.menuCode !== 'business'">
+                <ul @click="handleFold"
+                    class="menu_tree__children popover">
+                  <template v-for="children in item.children">
+                    <li @click="toRouter(children)">{{children.menuName}}</li>
+                  </template>
+                </ul>
+              </template>
+
+              <template v-else>
+                <div class="menu_tree__children popover">
+                  <dl v-for="child in item.children">
+                    <dt>{{child.menuName}}</dt>
+                    <dd v-for="action in child.children">
+                      <router-link :to="{
+                        name: child.url, 
+                        params: {
+                          code: action.menuCode,
+                          serviceCategoryCode: action.url,
+                          date: new Date().getTime()}}">{{action.menuName}}</router-link>
+                    </dd>
+                  </dl>
+                </div>
+              </template>
+            </el-popover>
+          </template>
+        </li>
+      </template>
+    </ul>
+  </t-ui-layout-body>
+</t-ui-layout>

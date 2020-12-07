@@ -1,0 +1,7 @@
+<footer class="tui_layout__footer" :class="{'center':center, 'tui_linear__top':linear}">
+  <div class="left" v-if="$slots.left"><slot name="left"></slot></div>
+
+  <slot></slot>
+
+  <div class="right" v-if="$slots.right"><slot name="right"></slot></div>
+</footer>

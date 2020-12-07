@@ -12,7 +12,7 @@ module.exports = {
       warnings: true,
       errors: true
     },
-    host: "localhost",
+    host: '0.0.0.0',
     port: '7001',
     // https: false,
     // open: false, //配置后自动启动浏览器

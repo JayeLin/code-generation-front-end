@@ -1,7 +1,6 @@
-<div id="nav">
+<div class="fill">
 	<template>
-		<!-- <home></home>
-			<router-link to="/about">About</router-link> -->
 		<router-view />
+		<not-found v-if="$store.state.notFoundPage"></not-found>
 	</template>
 </div>

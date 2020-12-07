@@ -1,0 +1,7 @@
+<header class="tui_layout__header" :class="{'tui_linear__bottom':linear}">
+  <div class="left" v-if="$slots.left"><slot name="left"></slot></div>
+
+  <slot></slot>
+
+  <div class="right" v-if="$slots.right"><slot name="right"></slot></div>
+</header>

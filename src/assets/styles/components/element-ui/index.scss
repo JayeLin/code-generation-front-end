@@ -1,14 +1,14 @@
-// @import './form';
+@import './form';
 @import './table';
-// @import './dialog.scss';
-// @import './message';
-// @import './dropdown';
+@import './dialog.scss';
+@import './message';
+@import './dropdown';
 
 
 .el-popover {
   font-size: inherit;
   min-width: auto;
-  padding: 100px;
+  padding: .1rem;
 }
 
 .el-tree {
@@ -27,15 +27,5 @@
     &:hover {
       background-color: #f2f8ff;
     }
-  }
-}
-.el-button {
-  height: 280px;
-  line-height: normal;
-  padding: 0 10px;
-  font-size: 140px;
-
-  &--text {
-    padding: 0;
   }
 }

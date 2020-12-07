@@ -1,0 +1,28 @@
+<t-ui-layout fill
+  class="index_box"
+  row>
+  <template slot="left">
+    <t-fr-menu></t-fr-menu>
+  </template>
+
+  <t-ui-layout
+    class="frame_body"
+    fill>
+
+    <t-fr-header></t-fr-header>
+
+    <t-ui-layout-aside>
+      <t-fr-tab></t-fr-tab>
+    </t-ui-layout-aside>
+
+    <t-ui-layout-body
+      class="frame_pages"
+      scroll>
+      <keep-alive
+        :include="keepAlive">
+        <router-view />
+      </keep-alive>
+    </t-ui-layout-body>
+  </t-ui-layout>
+
+</t-ui-layout>

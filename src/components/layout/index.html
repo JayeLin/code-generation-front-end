@@ -1,0 +1,7 @@
+<div class="tui_layout" :class="{'fill':fill,'row':row, 'tui_linear':linear}">
+  <div class="left" v-if="$slots.left && row"><slot name="left"></slot></div>
+
+  <slot></slot>
+
+  <div class="right" v-if="$slots.right && row"><slot name="right"></slot></div>
+</div>

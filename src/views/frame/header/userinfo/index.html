@@ -1,0 +1,15 @@
+<el-popover placement="bottom">
+  <el-button type="primary"
+             slot="reference">
+    <span>{{userInfo.name}}</span>
+    <i class="tui-icon-arrow-down"></i>
+  </el-button>
+
+  <div class="header_userInfo_popover">
+    <h3>{{userInfo.username}}</h3>
+    <p>{{userInfo.employeeNo}}</p>
+    <ul class="userToggle">
+      <t-fn-usershop></t-fn-usershop>
+    </ul>
+  </div>
+</el-popover>

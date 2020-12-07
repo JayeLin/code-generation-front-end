@@ -1,0 +1,229 @@
+$size: 0.28rem;
+
+[class*="el-"] {
+  font-size: 0.12rem;
+}
+
+.el-form {
+  &-item {
+    margin-bottom: 0.1rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &__label {
+      font-size: inherit;
+      line-height: $size;
+    }
+
+    &__content {
+      font-size: inherit;
+      line-height: $size;
+      position: relative;
+      flex: 1;
+    }
+
+    &__error {
+      padding: 0.02rem;
+      background-color: $red;
+      border-radius: 3px;
+      color: white;
+      position: absolute;
+      top: 0;
+      left: 0.02rem;
+      max-width: 80%;
+      transform: translateY(-100%);
+      margin-top: 8px;
+      z-index: 5;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      &:hover {
+        white-space: inherit;
+      }
+    }
+  }
+
+  &--label {
+    &-top {
+      .el-form-item {
+        &__label {
+          line-height: inherit;
+          padding: 0 0 $SPACING / 2 0;
+        }
+      }
+    }
+
+    &-left {
+      .el-form-item {
+        &__content {
+          flex: 1;
+        }
+      }
+    }
+  }
+}
+
+.el-cascader {
+  line-height: $size;
+}
+
+.el-textarea {
+  &__inner {
+    padding: 0.06rem;
+  }
+}
+
+.el-input {
+  width: auto;
+  font-size: inherit;
+
+  &__icon {
+    height: auto;
+  }
+
+  &__inner {
+    height: $size;
+    padding: 0 0.06rem;
+    line-height: normal;
+  }
+
+  &__suffix {
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  &--suffix {
+    .el-input__inner {
+      padding-right: $size;
+    }
+  }
+
+  &--prefix {
+    .el-input__prefix {
+    }
+
+    & + .el-form-item__error {
+      margin-left: 0.24rem;
+    }
+  }
+
+  &__prefix {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 0.3rem;
+    left: 1px;
+  }
+
+  &-group {
+    width: auto;
+  }
+
+  &-group__append,
+  &-group__prepend {
+    background-color: transparent;
+    width: auto;
+    min-width: 0.28rem;
+    padding: 0;
+
+    > * {
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+      margin: 0 !important;
+      height: 0.26rem !important;
+    }
+  }
+}
+
+.el-select {
+  .el-input__inner {
+  }
+}
+
+.el-button {
+  height: $size;
+  line-height: normal;
+  padding: 0 0.1rem;
+  font-size: 0.12rem;
+
+  &--text {
+    padding: 0;
+  }
+}
+
+.el-tabs {
+  &__nav-scroll {
+    padding: 0 0.1rem;
+  }
+
+  &__item {
+  }
+
+  &__content {
+    overflow: inherit;
+  }
+}
+
+.el-switch {
+  $size: 0.16rem;
+  line-height: $size;
+  height: $size;
+
+  &__core {
+    line-height: $size;
+    height: $size;
+
+    &::after {
+      width: $size * 0.75;
+      height: $size * 0.75;
+    }
+  }
+
+  &.is-checked .el-switch__core::after {
+    margin-left: -0.13rem;
+  }
+}
+
+.el-radio,
+.el-checkbox {
+  margin-left: 0 !important;
+  margin-right: 0.1rem;
+
+  &-group {
+  }
+
+  &__input {
+    vertical-align: top;
+    margin-top: 3px;
+  }
+
+  &__label {
+    font-size: 0.12rem;
+    line-height: 0.22rem;
+    padding-left: 0.06rem;
+    vertical-align: top;
+  }
+}
+
+.el-date-editor {
+  .el-range-separator {
+    padding: 0;
+    line-height: 1.8;
+  }
+
+  .el-input__icon {
+    line-height: 1.8;
+  }
+}

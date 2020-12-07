@@ -1,0 +1,79 @@
+.el-dialog, .el-message-box {
+  $header_height: .42rem;
+  border-radius: 6px;
+  &__header {
+    padding: 0 .12rem;
+    height: $header_height;
+    background-color: $blue;
+    color: white;
+    border-radius: 5px 5px 0 0;
+  }
+  &__title {
+    color: white;
+    font-size: .16rem;
+    line-height: $header_height;
+  }
+  &__headerbtn {
+    width: $header_height;
+    height: $header_height;
+    top: 0;
+    right: 0;
+  }
+  &__close {
+    color: white !important;
+    font-size: .18rem !important;
+  }
+
+
+  &__body {
+
+  }
+
+  &__footer {
+    display: flex;
+    flex-flow: row-reverse;
+
+    justify-content: center;
+    padding: .05rem;
+    background-color: #fafafa;
+    border-top: solid 1px #eee;
+    border-radius: 0 0 5px 5px;
+    
+    >button {
+      margin-left: 0 !important;
+      margin-right: .1rem !important;
+
+      &:first-child {
+        margin-right: 0 !important;
+      }
+    }
+
+    .dialog-footer {
+      display: flex;
+      justify-content: center;
+      .el-button {
+        margin-left: .08rem;
+      }
+    }
+  }
+}
+
+.el-message-box {
+  border: none;
+  border-radius: 10px;
+  padding: 0;
+  overflow: visible;
+
+  &__content {
+    padding: .2rem;
+  }
+
+  &__btns {
+    padding: .05rem;
+    background-color: #fafafa;
+    border-top: solid 1px #eee;
+    border-radius: 0 0 5px 5px;
+    display: flex;
+    justify-content: center;
+  }
+}
