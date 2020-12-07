@@ -1,0 +1,42 @@
+$LINEAR_COLOR: (
+  first: #999,
+  second: #aaa,
+  third: #ccc
+);
+
+$LINEAR_COLOR_DEFAULT: #ddd;
+.tui_linear {
+  border: solid 1px $LINEAR_COLOR_DEFAULT;
+  &__top {
+    border-top: solid 1px $LINEAR_COLOR_DEFAULT;
+  }
+  &__left {
+    border-left: solid 1px $LINEAR_COLOR_DEFAULT;
+  }
+  &__right {
+    border-right: solid 1px $LINEAR_COLOR_DEFAULT;
+  }
+  &__bottom {
+    border-bottom: solid 1px $LINEAR_COLOR_DEFAULT;
+  }
+  @each $k, $c in $LINEAR_COLOR {
+    @include linearDirection($k, $c);
+  }
+}
+hr {
+  &.tui_linear {
+    border: none;
+    border-bottom: solid 1px $LINEAR_COLOR_DEFAULT;
+    @each $k, $c in $LINEAR_COLOR {
+      &__#{$k} {
+        border: none;
+        border-bottom: solid 1px $c;
+      }
+    }
+  }
+}
+[class*="tui_linear"] {
+  &.dashed {
+    border-bottom-style: dashed;
+  }
+}

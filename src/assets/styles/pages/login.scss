@@ -1,0 +1,199 @@
+@import '@/assets/styles/vars/index.scss';
+
+
+.page_login {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+
+
+  h1 {
+    margin-top: -6%;
+    padding-bottom: 4%;
+    font-size: .32rem !important;
+    color: white;
+  }
+
+  .box {
+    width: 3.8rem;
+    padding: $SPACING * 4;
+    background-color: white;
+    border-radius: $BLOCK_RADIUS;
+    box-shadow: 0 0 10px 0 rgba(black, .1), 0 0 3px 0 rgba(black, .1);
+  }
+
+  .el-input  {
+    width: 100%;
+    &__inner {
+      height: .42rem;
+    }
+  }
+
+  .el-button {
+    width: 100%;
+    height: .42rem;
+    font-size: .15rem;
+    letter-spacing: .1rem;
+  }
+
+
+  .anim_background {
+    overflow: hidden;
+    background: linear-gradient(#0c83b9, #054c83) no-repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 50%;
+    z-index: -1;
+    perspective: 1000px;
+
+    $size: 8rem;
+
+    .circle {
+      width: $size;
+      height: $size;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-left: $size / -1.8;
+      margin-top: $size * -.28;
+
+      transform-style: preserve-3d;
+      backface-visibility: hidden;
+
+      animation: circleChange 8s both;
+      animation-timing-function: cubic-bezier(0, 1, 1, 1);
+
+      &::after {
+        content: '';
+        display: block;
+        @include full;
+        background: url('../../images/circle.png') center no-repeat;
+        background-size: contain;
+        animation: circleRotate 60s infinite linear;
+      }
+    }
+
+
+    .balloon1 {
+      width: $size * .05;
+      height: $size * .3;
+      margin-left: -4rem;
+
+      &::after {
+        background: url('../../images/balloon1.png') center no-repeat;
+        animation-delay: 5s;
+      }
+    }
+
+    .balloon2 {
+      width: $size * .06;
+      height: $size * .3;
+      margin-bottom: 1rem;
+      margin-left: 2.6rem;
+
+      &::after {
+        background: url('../../images/balloon2.png') center no-repeat;
+        animation-delay: 2s;
+      }
+    }
+
+    .balloon3 {
+      width: $size * .03;
+      height: $size * .24;
+      margin-left: 3.5rem;
+
+      &::after {
+        background: url('../../images/balloon3.png') center no-repeat;
+        animation-delay: 6s;
+      }
+    }
+
+    .balloon4 {
+      width: $size * .02;
+      height: $size * .2;
+      margin-bottom: -.5rem;
+      margin-left: -3.2rem;
+
+      &::after {
+        background: url('../../images/balloon4.png') center no-repeat;
+        animation-delay: 3s;
+      }
+    }
+
+
+    .balloon {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      animation: balloonArise 3s 1s both;
+
+      &::after {
+        content: '';
+        display: block;
+        @include full;
+        background-size: contain;
+        animation-name: balloonfloat;
+        animation-duration: 10s;
+        animation-fill-mode: both;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+      }
+    }
+  }
+}
+
+
+@keyframes circleRotate {
+  0% {
+    transform: rotate(0)
+  }
+
+  100% {
+    transform: rotate(360deg)
+  }
+}
+
+@keyframes circleChange {
+  0% {
+    transform: rotateX(0) rotateY(0) scale(1.5) rotate(0);
+    opacity: 0;
+  }
+
+  100% {
+    transform: rotateX(65deg) rotateY(-15deg) scale(1) rotate(360deg);
+    opacity: .2;
+  }
+}
+
+@keyframes balloonArise {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes balloonfloat {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-5%);
+  }
+  75% {
+    transform: translateY(5%);
+  }
+  0% {
+    transform: translateY(0);
+  }
+}

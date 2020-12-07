@@ -1,0 +1,9 @@
+.upload {
+  &-file {
+    &-item {
+      .mu-form-item-content {
+        margin-top: $SPACING;
+      }
+    }
+  }
+}

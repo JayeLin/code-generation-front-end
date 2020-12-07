@@ -1,0 +1,167 @@
+.frame {
+  $size: $HEADER_HEIGHT;
+
+  &_menu {
+    background-color: $MENU_BACKGROUND;
+    width: $size !important;
+    transition: width 0.3s;
+    color: $MENU_FONT_COLOR;
+
+    .menu_fold {
+      width: 100%;
+      height: $size;
+
+      button {
+        height: $size;
+        width: $size;
+        color: white;
+        border: none !important;
+        background: none !important;
+      }
+    }
+
+    &__body {}
+
+    &__tree {
+      white-space: nowrap;
+      overflow: hidden;
+    }
+
+    &.show {
+      width: $MENU_WIDTH !important;
+    }
+  }
+}
+
+.menu_tree {
+  $size: $HEADER_HEIGHT;
+
+  &__group {
+    color: $MENU_FONT_COLOR;
+
+    .single {
+      display: block;
+      height: $size;
+      cursor: pointer;
+
+      [class*="tui-icon-"] {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: $size;
+      }
+    }
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    outline: none !important;
+    cursor: pointer;
+
+    &:hover,
+    &.active {
+      background-color: $MENU_CHILDREN_BACKGROUND;
+    }
+
+    &.active {
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        border-left: solid 2px $blue;
+      }
+    }
+
+    [class*="tui-icon-"] {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: $size;
+      width: $size;
+    }
+  }
+
+  &__children {
+    line-height: .24rem;
+    background-color: $MENU_CHILDREN_BACKGROUND;
+    white-space: nowrap;
+    padding-bottom: .1rem;
+    padding-left: $size / 2;
+    color: white;
+
+    dl {
+      margin-top: .1rem;
+
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+
+    dt {
+      padding-left: $size / 2.5;
+      opacity: .5;
+    }
+
+
+    li,
+    dd {
+      padding-left: $size / 2;
+      padding-right: .1rem;
+      position: relative;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+
+      cursor: pointer;
+
+      &::before {
+        $size: .06rem;
+        content: '';
+        width: $size;
+        height: $size;
+        background-color: currentColor;
+        border-radius: $size;
+        position: absolute;
+        top: .08rem;
+        left: .08rem;
+        opacity: 0;
+      }
+
+      &:hover::before {
+        opacity: 1;
+      }
+
+      a {
+        color: white;
+      }
+    }
+
+    &.popover {
+      padding: .08rem;
+      margin: -.12rem -.1rem -.1rem -.23rem;
+      z-index: 99;
+
+      max-width: 1020px;
+      display: flex;
+      flex-wrap: wrap;
+
+      &+.popper__arrow {
+        display: none;
+      }
+
+      dl {
+        margin-top: 0;
+        min-width: 100px;
+      }
+    }
+  }
+}
+
+ul.menu_tree__children.popover {
+  display: block;
+}

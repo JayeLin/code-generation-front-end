@@ -1,0 +1,162 @@
+.frame {
+  $size: $TAB_HEADER;
+
+  &_tab {
+    height: $size;
+    overflow: hidden;
+
+    user-select: none;
+    -webkit-user-select: none;
+
+    padding-left: .02rem !important;
+
+    &__body {
+      display: flex;
+      overflow: hidden;
+    }
+
+    &_list,
+    &_tool {
+      display: flex;
+    }
+
+    &_tool {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-width: $size;
+
+      button {
+        background-color: transparent !important;
+        border: none !important;
+
+        color: $red;
+
+        &.is-disabled {
+          color: #ddd;
+        }
+      }
+    }
+
+    .tab_list {
+      height: 100%;
+      display: flex;
+      padding-top: .04rem;
+
+      &__item {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        margin: 0 .02rem;
+        padding: 0 .1rem;
+        background-color: transparent;
+        border-radius: 5px 5px 0 0;
+        cursor: pointer;
+
+        i {
+          &:first-child {
+            margin-right: .04rem;
+          }
+        }
+
+        h3 {
+          max-width: 160px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          font-weight: normal;
+        }
+
+        .tui-icon-close {
+          width: 0;
+          height: 24px;
+          border: none;
+          background-color: transparent;
+          border-radius: 50%;
+          overflow: hidden;
+          color: #aaa;
+          transform: scale(.6);
+          transition: all .2s;
+
+          &::before {
+            font-size: 12px;
+            line-height: 1;
+          }
+
+          &:hover {
+            background-color: red;
+            color: white;
+          }
+        }
+
+        &:hover {
+          background-color: rgba(white, .4);
+
+          .tui-icon-close {
+            margin-left: .02rem;
+            margin-right: -.06rem;
+            width: 24px;
+          }
+        }
+
+        &.active {
+          background-color: white;
+
+          h3 {
+            font-weight: bold;
+          }
+        }
+      }
+
+    }
+
+
+    .swiper-container {
+      flex: 1;
+      display: flex;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+    }
+
+    .swiper-wrapper {
+      display: flex;
+    }
+
+    .swiper-slide {
+      overflow: hidden;
+    }
+
+    .swiper-pagination {
+      display: flex;
+      width: 40px;
+      height: 40px;
+      padding: 4px;
+    }
+
+    .swiper-button {
+      flex: 1;
+
+      border: none;
+      background-color: transparent;
+
+      &::before {
+        font-size: 12px;
+      }
+
+      &:hover {
+        background-color: white;
+      }
+
+      &-disabled {
+        color: #ddd;
+        cursor: not-allowed;
+
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+}

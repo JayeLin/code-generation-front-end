@@ -1,0 +1,26 @@
+.fill {
+  width: 100%;
+  height: 100%;
+}
+
+.scroll {
+  overflow-y: auto !important;
+}
+
+@mixin linearDirection($k, $c) {
+  &.#{$k} {
+    border-color: $c;
+  }
+  &__top.#{$k} {
+    border-top: solid 1px $c;
+  }
+  &__left.#{$k} {
+    border-left: solid 1px $c;
+  }
+  &__right.#{$k} {
+    border-right: solid 1px $c;
+  }
+  &__bottom.#{$k} {
+    border-bottom: solid 1px $c;
+  }
+}

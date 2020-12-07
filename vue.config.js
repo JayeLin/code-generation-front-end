@@ -1,12 +1,35 @@
 const path = require('path')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
+  devServer: {
+    overlay: { // 让浏览器 overlay 同时显示警告和错误
+      warnings: true,
+      errors: true
+    },
+    host: "localhost",
+    port: '7001',
+    // https: false,
+    // open: false, //配置后自动启动浏览器
+    // hotOnly: true, // 热更新
+    proxy: {
+      'api': {
+        target: '目标网址',
+        ws: true,
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
+      }
+    },
+  },
+
+
   configureWebpack: config => {
     config.plugins.forEach((val) => {
       if (val instanceof HtmlWebpackPlugin) {
@@ -56,12 +79,23 @@ module.exports = {
       .use('html-loader')
       .loader('html-loader')
       .end()
+    config.module
+      .rule('vue')
+      .use('vue-loader')
+      .loader('vue-loader')
+      .tap(options => {
+        options.compilerOptions.preserveWhitespace = true
+        return options
+      })
+      .end()
+
+
   },
   // 支持解析html模版
   configureWebpack: {
     resolve: {
       alias: {
-        '@': resolve('src'),
+        '@': resolve('/src'),
         vue$: 'vue/dist/vue.js'
       }
     }
@@ -71,6 +105,14 @@ module.exports = {
     sourceMap: false,
     requireModuleExtension: true,
     loaderOptions: {
+      // css: {
+      //   test: /\.css$/,
+      //   include: [
+      //     /src/, //表示在src目录下的css需要编译
+      //     '/node_modules/element-ui/lib/' //增加此项
+      //   ],
+      //   loader: 'style-loader!css-loader'
+      // },
       less: {
         test: /\.less$/,
         loader: 'less-loader'

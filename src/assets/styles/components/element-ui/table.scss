@@ -1,0 +1,74 @@
+.el-table {
+  font-size: 12px;
+  border: solid 1px #eee;
+  display: flex;
+  flex-flow: column;
+  .el-table {
+    border: none;
+  }
+
+  &__body {
+    &-wrapper {
+      flex: 1;
+    }
+  }
+
+  &__header {
+    background-color: #f2f2f2;
+    tr,
+    th {
+      background-color: transparent;
+    }
+  }
+
+  &__row {
+    height: auto !important;
+  }
+  td,
+  th {
+    padding: 0 !important;
+    vertical-align: top;
+  }
+
+  td {
+    color: #000;
+  }
+  th {
+    color: #666;
+  }
+  .cell {
+    padding: 0.05rem 0.08rem !important;
+    white-space: normal;
+    text-overflow: initial;
+  }
+
+  .caret-wrapper {
+    height: 0.18rem;
+    margin-top: 3px;
+    vertical-align: top;
+
+    .ascending {
+      border-top: none;
+      top: 0.03rem;
+    }
+
+    .descending {
+      border-bottom: none;
+      bottom: 0.03rem;
+    }
+  }
+
+  .el-button {
+    max-width: 100%;
+    min-height: 0.22rem;
+    height: auto;
+    white-space: normal;
+    &--text {
+      margin-left: 0;
+    }
+  }
+
+  &__empty-text {
+    line-height: 0.6rem;
+  }
+}

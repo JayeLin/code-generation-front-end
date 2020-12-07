@@ -1,0 +1,138 @@
+.flex {
+  display: flex;
+  max-width: 100%;
+
+  &_wrap {
+    flex-wrap: wrap;
+  }
+
+  &_col {
+    flex-flow: column;
+  }
+
+  &_middle {
+    align-items: center;
+  }
+
+  &_center {
+    justify-content: center;
+  }
+
+  @for $i from 1 through 10 {
+    &#{$i} {
+      flex: $i;
+    }
+  }
+}
+
+.tui {
+  $LAYOUT_BORDER_COLOR: #ccc;
+  $LAYOUT_SPACING: 0.1rem;
+
+  &_layout {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+    overflow: hidden;
+    &+& {
+      margin-top: $LAYOUT_SPACING;
+    }
+
+    &.tui_linear {
+      border-radius: 4px;
+
+      .tui_layout__header {
+        padding-left: .1rem;
+      }
+    }
+
+    &.fill {
+      flex: 1;
+      @extend .fill;
+
+      > .tui_layout_body {
+        flex: 1;
+      }
+    }
+
+    &.row {
+      flex-flow: row;
+      padding: 0;
+      margin: 0;
+    }
+
+    &.row,
+    &__header,
+    &__footer {
+      display: flex;
+
+      >.left {}
+
+      >.right {
+        margin-left: auto;
+      }
+
+      &.center {
+        justify-content: center;
+      }
+    }
+
+    &__header,
+    &__footer {
+      align-items: center;
+    }
+
+    &__header {
+      h3 {
+        font-size: 0.14rem;
+        line-height: 0.32rem;
+      }
+    }
+
+    &__body {
+      &.fill {
+        flex: 1;
+      }
+    }
+
+    &__footer {}
+
+    &__scroll {
+      @extend .scroll;
+    }
+  }
+}
+
+@mixin spcFor($t, $s, $e) {
+  $shift: 0.01;
+
+  @for $i from $s through $e {
+    &#{$i} {
+      #{$t}: #{$i * $shift}rem !important;
+    }
+
+    &t#{$i} {
+      #{$t}-top: #{$i * $shift}rem !important;
+    }
+
+    &l#{$i} {
+      #{$t}-left: #{$i * $shift}rem !important;
+    }
+
+    &b#{$i} {
+      #{$t}-bottom: #{$i * $shift}rem !important;
+    }
+
+    &r#{$i} {
+      #{$t}-right: #{$i * $shift}rem !important;
+    }
+  }
+}
+
+.pd {
+  @include spcFor(padding, 1, 20);
+}
+
+.mg {
+  @include spcFor(margin, 1, 20);
+}

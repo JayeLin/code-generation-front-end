@@ -1,0 +1,26 @@
+
+// @import './vars/index.scss';
+
+// @import './public/reset.scss';
+// @import './public/public.scss';
+
+
+@import './components/element-ui/index';
+// @import './components/teleone-ui/index';
+
+
+
+// @import './frame/header.scss';
+// @import './frame/tab.scss';
+// @import './frame/menu.scss';
+// @import './frame/body.scss';
+
+// @import './pages/print.scss';
+
+// // 图标
+// @import '../fonts/iconfont.css';
+
+
+button[disabled] {
+  cursor: initial
+}

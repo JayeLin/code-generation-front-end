@@ -2,12 +2,16 @@
 import Vue from 'vue'
 import router from './router'
 import store from './store'
-// // 引入 ElementUI
-// import ElementUI from 'element-ui'
-// import 'element-ui/lib/theme-chalk/icon.css'
-// import 'element-ui/lib/theme-chalk/index.css'
-// // import './styles.scss'
-// Vue.use(ElementUI)
+import '../src/assets/styles/main.scss'
+// 引入 ElementUI
+// import './plugins/element.js'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/icon.css'
+import 'element-ui/lib/theme-chalk/index.css'
+Vue.use(ElementUI)
+
+// 全局配置项
+import './config/'
 
 Vue.config.productionTip = false
 

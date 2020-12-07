@@ -1,0 +1,42 @@
+$FORM_ELEMENT_TYPE: (error: $ERROR, warn: $WARN, succeed: $SUCCEED, info: $INFO, disable: $DISABLE);
+
+.tui {
+  &_form {
+    &.form-readonly {
+      .el-form-item {
+        // border: solid 1px #f1f1f1;
+        // margin: 0 -1px -1px 0;
+        padding: 0;
+
+        &__label {
+          margin: -3px;
+          margin-right: 0;
+          line-height: .32rem;
+        }
+
+        &__content {
+          background-color: #f1f1f1;
+          border: solid 1px #aaa;
+          padding: 2px;
+        }
+
+        &.empty {
+          .el-form-item__content {
+            background-color: #fff;
+            border: none;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+button,
+input,
+textarea {
+  font-weight: normal
+}

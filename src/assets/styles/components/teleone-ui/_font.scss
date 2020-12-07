@@ -1,0 +1,43 @@
+// 有色文字
+$FONT_COLOR_ARRAY: (
+  error: $red,
+  warning: $orange,
+  success: $green,
+  info: $blue,
+  title: $TITLE_FONT_COLOR,
+  depict: $DEPICT_FONT_COLOR,
+  minor: $MINOR_FONT_COLOR,
+  disable: $DISABLE_FONT_COLOR
+);
+
+$FONT_SIZE: (
+  xxxl: 0.24rem,
+  xxl: 0.2rem,
+  xl: 0.18rem,
+  lg: 0.16rem,
+  md: 0.14rem,
+  sm: 0.13rem,
+  xs: 0.12rem
+);
+.fontStyle {
+  // 字体颜色
+  @each $k, $v in $FONT_COLOR_ARRAY {
+    &.#{$k},
+    .#{$k} {
+      color: $v !important;
+    }
+  } // 字体大小
+  @each $k, $v in $FONT_SIZE {
+    &.#{$k},
+    .#{$k} {
+      font-size: $v !important;
+    }
+  }
+}
+.bg_ {
+  @each $k, $v in $FONT_COLOR_ARRAY {
+    &#{$k} {
+      background-color: $v !important;
+    }
+  }
+}

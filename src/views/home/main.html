@@ -1,12 +1,19 @@
 <div class="app">
   <template>
-      <img alt="Vue logo"
-      src="../../assets/logo.png">
-      <div class="about">
-          <!-- <el-button type="success" icon="el-icon-search" round>默认按钮</el-button> -->
-        <h1>This is an about page</h1>
+    <img alt="Vue logo"
+         src="../../assets/logo.png">
+    <div class="about">
+      <div>
+        <p>
+          If Element is successfully added to this project, you'll see an
+          <code v-text="'<el-button>'"></code>
+          below
+        </p>
+        <el-button type="primary">el-button</el-button>
       </div>
-    </template>
-    <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
-    <hello-world :msg="info"></hello-world>
+      <h1>This is an about page</h1>
+    </div>
+  </template>
+  <!-- <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/> -->
+  <hello-world :msg="info"></hello-world>
 </div>

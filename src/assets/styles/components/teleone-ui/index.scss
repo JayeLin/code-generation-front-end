@@ -1,0 +1,13 @@
+
+@import './__mixin';
+
+.TeleOneUI {
+  @import './_dot'; // 小红点
+  @import './_font'; // 文本样式
+  @import './_form'; // 文本样式
+  @import './_message'; // 文本样式
+  @import './_linear'; // 文本样式
+}
+
+@import './_frame'; // 框架
+@import './_layout'; // 布局

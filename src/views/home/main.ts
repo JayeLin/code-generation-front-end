@@ -5,7 +5,7 @@ import './main.scss'
 @Component({
   name: 'home',
   components: {
-    HelloWorld: HelloWorldComponent
+    HelloWorld: HelloWorldComponent,
   },
   template: require('./main.html')
 })

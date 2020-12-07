@@ -1,0 +1,39 @@
+
+// ------------------属性值------------------
+$ROOT_FONT_SIZE: 100PX; // 初始根标签字体大小，以rem换算  100px=1rem
+// 字体大小
+$BODY_FONT_SIZE: .12rem;
+$MINOR_FONT_SIZE: .12rem;
+// 行高
+$BODY_LINE_HEIGHT: 1.5;
+// 间距
+$SPACING: .1rem;
+// 圆角
+$BLOCK_RADIUS: .05rem;
+
+// ------------------颜色值------------------
+// 按钮及有色文本颜色
+$ERROR: $red;
+$WARN: $orange;
+$SUCCEED: $green;
+$INFO: $blue;
+$DISABLE: $grey5;
+
+// 文本颜色
+$TITLE_FONT_COLOR: $grey1;
+$FONT_COLOR: #000;
+$DEPICT_FONT_COLOR: $grey3; // depict: 描述
+$MINOR_FONT_COLOR: $grey4; // minor: 次要
+$DISABLE_FONT_COLOR: $grey5;
+// 背景颜色
+$BACKGROUND_COLOR: #f2f2f2;
+// 边框颜色
+$BORDER_COLOR: $grey6;
+$ESC_BORDER_COLOR: $grey7; // esc: 次要
+
+// 块级
+// 背景颜色
+$BLOCK_BACKGROUND_COLOR: white;
+// 投影
+$BLOCK_SHADOW: 0 0 .1rem 0 rgba(black, .1);
+$BLOCK_HOVER_SHADOW: 0 0 .1rem 0 rgba(black, .25);

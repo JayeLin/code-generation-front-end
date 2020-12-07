@@ -1,0 +1,41 @@
+// @import './form';
+@import './table';
+// @import './dialog.scss';
+// @import './message';
+// @import './dropdown';
+
+
+.el-popover {
+  font-size: inherit;
+  min-width: auto;
+  padding: 100px;
+}
+
+.el-tree {
+  &-node {
+    white-space: initial;
+    
+  }
+
+  &-node__label {
+    font-size: inherit;
+  }
+
+  &-node__content {
+    height: auto;
+
+    &:hover {
+      background-color: #f2f8ff;
+    }
+  }
+}
+.el-button {
+  height: 280px;
+  line-height: normal;
+  padding: 0 10px;
+  font-size: 140px;
+
+  &--text {
+    padding: 0;
+  }
+}

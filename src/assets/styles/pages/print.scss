@@ -1,0 +1,104 @@
+// 去掉打印页面头尾 - webkit 
+// @media print {
+//   @page {}
+
+//   html {
+//     padding: 1rem;
+//   }
+// }
+
+
+// 修复wrapper不自动消失的问题： 使用媒体查询 样式只在打印时生效
+@media print {
+  .print {
+    &_start {
+      >* {
+        display: none !important;
+      }
+    }
+
+    &_wrapper {
+      display: block !important;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      min-height: 100%;
+      z-index: 999999;
+    }
+  }
+}
+
+.print {
+  &_wrapper {
+    position: relative;
+    width: 750PX;
+  }
+
+  &_block {
+    hr {
+      margin: 0 !important;
+    }
+
+    * {
+      word-break: break-all !important;
+      line-height: 1em !important;
+    }
+
+
+    .el-form-item {
+      min-height: .8em;
+      margin-bottom: .8em;
+    }
+
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 0;
+      padding: .8em 0;
+    }
+
+    h4 {
+      font-size: 13px;
+    }
+
+    h6 {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .el-table {
+      .cell {
+        padding: .34em !important;
+      }
+    }
+
+    .is-checked {
+      .el-checkbox__inner {
+        &::after {
+          content: '√' !important;
+          top: 0 !important;
+          left: 2px !important;
+          font-weight: bold;
+          font-family: Consolas;
+          border: none !important;
+          transform: none !important;
+        }
+      }
+    }
+
+    .el-radio__inner {
+      padding: 3px;
+
+      &::after {
+        display: block;
+        width: 6px;
+        height: 6px;
+        transform: none !important;
+        border: none !important;
+        position: static;
+      }
+    }
+  }
+}

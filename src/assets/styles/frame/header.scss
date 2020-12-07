@@ -1,0 +1,72 @@
+.frame {
+  $size: $HEADER_HEIGHT;
+
+  &_header {
+    height: $size;
+    background-color: $HEADER_BACKGROUND_COLOR;
+
+    button {
+      border: none;
+    }
+
+    .logo {
+      height: $size;
+      padding: .08rem;
+
+      img {
+        height: 100%;
+      }
+    }
+
+    .header_left {
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+      .userToggle {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    .header_right {
+      display: flex;
+      height: 100%;
+
+      li {
+        padding: .04rem;
+        border-right: solid 1px #f2f2f2;
+
+        &:last-child {
+          border-right: none;
+        }
+      }
+    }
+
+    .header_userInfo {
+      .tui-icon-arrow-down {
+        margin-left: .05rem;
+        font-size: .12rem;
+        transform: scale(.8);
+      }
+
+      &_popover {}
+    }
+  }
+}
+
+
+
+.toggleTool {
+  display: flex;
+  align-items: center;
+  color: $blue;
+
+  button {
+    margin-left: .05rem;
+  }
+
+  &.toggleEquipment {}
+
+  &.toggleShop {}
+}
