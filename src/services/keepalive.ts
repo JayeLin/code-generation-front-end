@@ -106,17 +106,6 @@ function closeConfirm(option: any, callback: () => void) {
 
 const keepalive: KeepAlive = {
   check(to, next) {
-    // 根據导航設置tab標題
-    let menusPermissionList: any = vm.$store.state.permission.menus
-    if (menusPermissionList && menusPermissionList.length > 0) {
-      let obj: any = menusPermissionList.find((item: any) => {
-        return item.url === to.path
-      })
-      // 设置tab名称
-      state.title = obj ? obj.label : null
-      // 关闭tab时是否开启二次确认
-      state.noConfirm = obj ? true : false
-    }
     // 判断路由是否打开
     if (!getCurrRouter(to)) {
       // 是否打开最大限制路由
@@ -127,7 +116,7 @@ const keepalive: KeepAlive = {
           tips: state.title ? state.title : to.name,
 
           // tab关闭提示
-          isConfirm: state.noConfirm ? false : true,
+          isConfirm: true,
 
           // tab标识
           sign: null,

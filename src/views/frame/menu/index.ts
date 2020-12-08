@@ -17,18 +17,34 @@ export class MenuFrame extends Vue {
 
   current: string = ""
 
+  temp: any = [
+    {
+      children: [],
+      code: "home",
+      elements: null,
+      icon: "icon-gear",
+      id: 3,
+      label: "首页",
+      map: null,
+      parentCode: "home",
+      selected: null,
+      sequence: 1,
+      type: "MENU",
+      url: null
+    }
+  ]
   constructor() {
     super();
   }
 
   created() {
-    this.$http.get(CSMS.BASE.SCYPERMISSION.SCYPERMISSION_USERMENURMISSION).then(res => {
-      if (res.data.code === "10000000") {
-        this.menuList = res.data.data
-      }
-    })
+    // this.$http.get(CSMS.BASE.SCYPERMISSION.SCYPERMISSION_USERMENURMISSION).then(res => {
+    //   if (res.data.code === "10000000") {
+    //     this.menuList = res.data.data
+    //   }
+    // })
+    this.menuList = this.temp
   }
-
   @Watch('isFold')
   handleFold() {
     this.current = ""

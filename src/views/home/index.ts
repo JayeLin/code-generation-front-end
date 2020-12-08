@@ -4,7 +4,7 @@ import './index.scss'
 @Component({
   name: 'home',
   components: {
-    HelloWorld: HelloWorldComponent,
+    helloWorld: HelloWorldComponent,
   },
   template: require('./index.html')
 })
@@ -14,5 +14,6 @@ export default class HomeComponent extends Vue {
     super();
   }
   created () {
+    console.log("HomeComponent")
   }
 }

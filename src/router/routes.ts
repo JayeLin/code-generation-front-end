@@ -1,8 +1,8 @@
-import HomeComponent from '../views/home'
+import HomeComponent from '@/views/home'
 import MainComponent from '@/views/main'
 import { vm } from '@/main';
 console.log("routes..........")
-export default [
+const routes = [
   {
     path: '/',
     name: 'main',
@@ -20,4 +20,5 @@ export default [
     beforeEnter() {
       vm.$store.state.notFoundPage = true
     }
-  },]
+  }]
+export default routes;

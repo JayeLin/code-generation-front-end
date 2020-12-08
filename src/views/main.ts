@@ -30,7 +30,6 @@ export default class MainComponent extends Vue {
   }
 
   created() {
-
   }
 
   mounted() {

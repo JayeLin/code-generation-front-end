@@ -1,15 +1,9 @@
 // import { createApp } from 'vue'
 import Vue from 'vue'
-import router from './router'
-import store from './store'
+import router from './router/'
+import store from './store/'
 import '@/assets/styles/main.scss'
-// 引入 ElementUI
-// import './plugins/element.js'
-import ElementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/icon.css'
-import 'element-ui/lib/theme-chalk/index.css'
-Vue.use(ElementUI)
-document.body.classList.add('TeleOneUI')
+
 // 全局配置项
 import './config/'
 // 组件
@@ -19,8 +13,9 @@ import './services/'
 // 模型轉化插件
 import "reflect-metadata";
 import '@/assets/fonts/iconfont.js'
-
 Vue.config.productionTip = false
+
+document.body.classList.add('TeleOneUI')
 import { PageNotFoundComponent } from '@/views/pageNotFound';
 export const vm: Vue = new Vue({
   components: {
@@ -28,5 +23,6 @@ export const vm: Vue = new Vue({
   },
   router,
   store,
-  template: require('./main.html')
+  template: require('./main.html'),
+  created() { },
 }).$mount('#app')

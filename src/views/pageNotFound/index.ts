@@ -9,13 +9,11 @@ import { State } from 'vuex-class';
   template: require("./index.html")
 })
 export class PageNotFoundComponent extends Vue {
-  @State(s => s.language.lang.notFound) lang: any
 
   constructor() {
     super();
   }
   created() {
-    this.$language.get('notFound')
   }
 
   backPrev() {

@@ -4,6 +4,7 @@ Vue.use(Vuex)
 
 import { keepalive } from "./keepalive";
 import { user } from "./user";
+import { menu } from "./menu";
 const store: any = new Vuex.Store({
   state: {
     token: null,
@@ -16,7 +17,8 @@ const store: any = new Vuex.Store({
   },
   modules: {
     keepalive,
-    user
+    user,
+    menu,
   }
 })
 export default store

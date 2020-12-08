@@ -11,14 +11,19 @@ Router.prototype.push = function push(location: any) {
 
 const router = new Router({
   mode: process.env.IS_ELECTRON ? 'hash' : 'history',
-  // mode: 'history',
   base: process.env.BASE_URL,
   routes
 })
 
 router.beforeEach((to, from, next) => {
-  console.warn(to, '-----------router-to')
-  // router.app.$message(next.toString())
+  const status = !!sessionStorage.getItem('token')
+  if (!status && to.name !== 'login') {
+    // 没有登录，定向到登录页
+    next()
+  } else {
+    // 登录页可以直接进入
+    next()
+  }
 })
 
 export default router

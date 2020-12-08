@@ -7,27 +7,27 @@ function resolve(dir) {
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 module.exports = {
-  devServer: {
-    overlay: { // 让浏览器 overlay 同时显示警告和错误
-      warnings: true,
-      errors: true
-    },
-    host: '0.0.0.0',
-    port: '7001',
-    // https: false,
-    // open: false, //配置后自动启动浏览器
-    // hotOnly: true, // 热更新
-    proxy: {
-      'api': {
-        target: '目标网址',
-        ws: true,
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
-      }
-    },
-  },
+  // devServer: {
+  //   overlay: { // 让浏览器 overlay 同时显示警告和错误
+  //     warnings: true,
+  //     errors: true
+  //   },
+  //   host: '0.0.0.0',
+  //   port: '7001',
+  //   // https: false,
+  //   // open: false, //配置后自动启动浏览器
+  //   // hotOnly: true, // 热更新
+  //   proxy: {
+  //     'api': {
+  //       target: '目标网址',
+  //       ws: true,
+  //       changeOrigin: true,
+  //       pathRewrite: {
+  //         '^/api': ''
+  //       }
+  //     }
+  //   },
+  // },
 
 
   configureWebpack: config => {
@@ -110,17 +110,10 @@ module.exports = {
     sourceMap: false,
     requireModuleExtension: true,
     loaderOptions: {
-      // css: {
-      //   test: /\.css$/,
-      //   include: [
-      //     /src/, //表示在src目录下的css需要编译
-      //     '/node_modules/element-ui/lib/' //增加此项
-      //   ],
-      //   loader: 'style-loader!css-loader'
-      // },
       less: {
         test: /\.less$/,
-        loader: 'less-loader'
+        loader: 'less-loader',
+        javascriptEnabled: true
       },
       postcss: {
         plugins: [
