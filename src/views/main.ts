@@ -30,6 +30,7 @@ export default class MainComponent extends Vue {
   }
 
   created() {
+    console.log("keepAlive", this.keepAlive)
   }
 
   mounted() {

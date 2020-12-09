@@ -57,6 +57,9 @@ function hasKeepalive(compare: string): boolean {
 
 /** 获得当前路由，返回是否找到，回调返回找到的路由 */
 function getCurrRouter(to: To, callback?: (item: any) => any) {
+  console.log("getCurrRouter.............")
+  console.log("to: ", to)
+  console.log("state.list: ", state.list)
   let len = state.list.length
   for (let i = 0; i < len; i++) {
     if (state.list[i].path === to.path) {
@@ -108,6 +111,7 @@ const keepalive: KeepAlive = {
   check(to, next) {
     // 判断路由是否打开
     if (!getCurrRouter(to)) {
+      console.log("state.list", state.list)
       // 是否打开最大限制路由
       if (state.list.length <= 10) {
         let item: To = {
